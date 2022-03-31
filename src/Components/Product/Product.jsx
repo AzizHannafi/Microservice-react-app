@@ -2,9 +2,22 @@ import React from 'react'
 import './Product.css'
 import {deleteProduct} from '../../API/ProductApi'
 function Product(props) {
+
+  const products= props.listProduct;
+
   const deleteProd=()=>{
+      for(let i=0; i<products.length;i++){
+        if(products[i].id === props.product.id ){
+           const indexToRemove= i;
+           products.splice(indexToRemove,1)
+        }
+      }
+      props.setListProduct([...products])
       deleteProduct(props.product.id)
   }
+
+
+
   return (
     <div className='card'>
         <div className='product_imgage'>

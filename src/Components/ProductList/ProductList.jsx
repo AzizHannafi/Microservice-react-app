@@ -12,7 +12,7 @@ function ProductList() {
     getProduct().then((res)=>{
       setListProduct(res)
     })
-  },[listProduct])
+  },[])
 
 
  
@@ -20,7 +20,7 @@ function ProductList() {
   return (
     <div className='cards'>
         {listProduct.map((product)=>(
-          <Product key={product.id} product={product}/>
+          <Product key={product.id} product={product} listProduct={listProduct} setListProduct={setListProduct}/>
         ))}
     </div>
   )
